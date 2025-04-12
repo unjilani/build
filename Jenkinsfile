@@ -24,7 +24,7 @@ pipeline {
             steps {
                     sh """
                     scp -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/jenkins.pem deploy.sh ec2-user@18.191.215.194:/home/ec2-user/
-                    chmod -R 777 /home/ec2-user/deploy.sh
+                    chmod -R 777 ./deploy.sh
                     ssh -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/jenkins.pem ec2-user@18.191.215.194 "./deploy.sh $Branch_Name"
                     """
                 }
