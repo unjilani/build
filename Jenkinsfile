@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        Branch_Name="${env.Branch_Name}"
+        Branch="${env.Branch_Name}"
     }
 
     stages {
@@ -14,9 +14,9 @@ pipeline {
 
         stage('Build & Push Docker Image') {
             steps {
-                echo "Branch name $Branch_Name"
+                echo "Branch name $Branch"
                 sh 'chmod -R 777 ./build.sh'
-                sh './build.sh Branch_Name'
+                sh './build.sh '$Branch''
             }
         }
 
