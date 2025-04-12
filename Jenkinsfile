@@ -14,6 +14,7 @@ pipeline {
 
         stage('Build & Push Docker Image') {
             steps {
+                sh 'chmod -R 777 ./build.sh'
                 sh './build.sh'
             }
         }
