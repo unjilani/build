@@ -23,8 +23,8 @@ pipeline {
         stage('Pulled Image and Deploy to Server') {
             steps {
                     sh """
-                    scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/jenkins.pem deploy.sh ec2-user@18.191.215.194:/home/ec2-user/
-                    ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/jenkins.pem ec2-user@18.191.215.194 "Branch_Name=$Branch_Name bash deploy.sh"
+                    scp -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/jenkins.pem deploy.sh ec2-user@18.191.215.194:/home/ec2-user/
+                    ssh -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/jenkins.pem ec2-user@18.191.215.194 "Branch_Name=$Branch_Name bash deploy.sh"
                     """
                 }
             }
