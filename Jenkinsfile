@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         Branch_Name="${env.Branch_Name}"
+        DOCKER_CREDENTIALS = credentials('dockerhub-creds')
     }
 
     stages {
@@ -11,7 +12,12 @@ pipeline {
                 checkout scm
                }
             }
-
+        
+        stage('Login to DockerHub') {
+            steps {
+                echo "${DOCKER_CREDENTIALS_PSW}" | docker login -u "${DOCKER_CREDENTIALS_USR}" --password-stdin
+               }
+            }
         stage('Build & Push Docker Image') {
             steps {
                 echo "Branch name $Branch_Name"
