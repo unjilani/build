@@ -11,7 +11,7 @@ if [ "$Branch_Name" == "dev" ]; then
     docker pull unjilani24/dev:latest
     docker run -d --name react-application -p 80:80 unjilani24/dev:latest
     echo "Deployment finished successfully!"
-elif [ "$Branch_Name" == "prod" ]; then
+elif [ "$Branch_Name" == "main" ]; then
     docker pull unjilani24/prod:latest
     docker run -d --name react-application -p 80:80 unjilani24/prod:latest
     echo "Deployment finished successfully!"

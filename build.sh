@@ -12,7 +12,7 @@ if [ "$Branch_Name" == "dev" ]; then
     docker login -u "kkacc19@hotmail.com" -p "34341983Umer!" docker.io
     docker push unjilani24/dev:latest
 
-elif [ "$Branch_Name" == "prod" ]; then
+elif [ "$Branch_Name" == "main" ]; then
     echo " Building image from Dockerfile for Production"
     docker build -t unjilani24/prod:latest .
     echo " Pushing image to Docker Hub (Production)"
