@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo "Branch name $Branch_Name"
                 sh 'chmod -R 777 ./build.sh'
-                sh './build.sh'
+                sh './build.sh '$Branch_Name''
             }
         }
 
